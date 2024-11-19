@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import TabSystem from './Tab'
 import ReactDOM from "react-dom";
 
-function ExamplePanel({ context }: { context: PanelExtensionContext }): JSX.Element {
+function ParametersPanel({ context }: { context: PanelExtensionContext }): JSX.Element {
   const [topics, setTopics] = useState<undefined | Immutable<Topic[]>>();
   const [parameters, setParameters] = useState<undefined | Immutable<Map<string, ParameterValue>>>();
   const [messages, setMessages] = useState<undefined | Immutable<MessageEvent[]>>();
@@ -75,8 +75,8 @@ function ExamplePanel({ context }: { context: PanelExtensionContext }): JSX.Elem
   );
 }
 
-export function initExamplePanel(context: PanelExtensionContext): () => void {
-  ReactDOM.render(<ExamplePanel context={context} />, context.panelElement);
+export function initParametersPanel(context: PanelExtensionContext): () => void {
+  ReactDOM.render(<ParametersPanel context={context} />, context.panelElement);
 
   // Return a function to run when the panel is removed
   return () => {
