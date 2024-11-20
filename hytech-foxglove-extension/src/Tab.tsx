@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Immutable, PanelExtensionContext, ParameterValue } from "@foxglove/extension";
+import './styles.css'
 
 /* Tab */
 type RegisteredParameter = {
@@ -63,7 +64,7 @@ const TabSystem: React.FC<TabSystemProps> = ({parameters, setParameters, pExtens
     };
 
     const renameTab = (id: string, newName: string) => {
-        const newTabs = tabs.map(tab => tab.id == id ? {...tab, name: newName} : tab);
+        const newTabs = tabs.map(tab => tab.id === id ? {...tab, name: newName} : tab);
         setTabs(newTabs);
     };
 
@@ -151,22 +152,22 @@ const TabSystem: React.FC<TabSystemProps> = ({parameters, setParameters, pExtens
 
     return (
         <div>
-            <div className="tab_box">
+            <div className="nav_bar">
                 {
                     tabs.map(tab => (
-                        <div key={tab.id} className="tab" onClick={() => setActiveTab(tab.id)}>
-                            <input type="text" value={tab.name} onChange={(e) => renameTab(tab.id, e.target.value)} className="tab_input" />
-                            <button className="delete" onClick={(e) => {
+                        <span className="tab_box">
+                            <input type="text" value={tab.name} onChange={(e) => renameTab(tab.id, e.target.value)} className="tab_entry" onClick={(e) => setActiveTab(tab.id)} />
+                            <button className="tab_delete" onClick={(e) => {
                                 e.stopPropagation();
                                 deleteTab(tab.id);
                             }}>x</button>
-                        </div>
+                        </span>
                     ))
                 }
+                <button onClick={addTab} className="tab_add">+</button>
             </div>
-            <button onClick={addTab} className="add_tab">+</button>
-            <div> 
-                <form onSubmit={handleParameterSubmit}>
+            <div className="parameter_add_box"> 
+                <form className="parameter_add_form" onSubmit={handleParameterSubmit}>
                     <input id="parameter_input" placeholder="Search parameters" list="params" />
                     <datalist id="params">
                         {paramNames.map((param) => (
@@ -178,10 +179,10 @@ const TabSystem: React.FC<TabSystemProps> = ({parameters, setParameters, pExtens
             </div>
             <div>
                 {Array.from((getActiveTab().registeredParameters ?? new Map<string, ParameterValue>()).keys()).map((key) => (
-                    <div>
-                        <label>{key}</label>
+                    <div className="parameter_list">
+                        <label className="parameter_name">{key}</label>
                         <input id="change_param" type="text" value={getActiveTab().registeredParameters.get(key)?.inputField} onChange={(e) => onParameterChange(key, e)} />
-                        <label>{getParameterValue(getActiveTab().registeredParameters.get(key)?.parameterValue)}</label>
+                        {/* <label className="perceived_parameter">{getParameterValue(getActiveTab().registeredParameters.get(key)?.parameterValue)}</label> */}
                     </div>
                 ))}
             </div>

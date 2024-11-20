@@ -38,11 +38,6 @@ function ParametersPanel({ context }: { context: PanelExtensionContext }): JSX.E
       // currentFrame has messages on subscribed topics since the last render call
       setMessages(renderState.currentFrame);
 
-      // let test = new Map(parameters);
-      // test.set("SimpleController/positive_speed_set", 1000000000000000000);
-      // test.set("sigma", 1000000000000000000);
-      // setParameters(test);
-
     };
 
     // After adding a render handler, you must indicate which fields from RenderState will trigger updates.
