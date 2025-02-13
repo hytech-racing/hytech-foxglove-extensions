@@ -1,0 +1,1865 @@
+{
+  "configById": {
+    "Indicator!1d5fxen": {
+      "path": "mcu_status_data.bms_ok_high",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "BMS BAD",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "true",
+          "color": "#68e24a",
+          "label": "BMS OK"
+        }
+      ]
+    },
+    "Indicator!3qa9o5p": {
+      "path": "mcu_status_data.bspd_ok_high",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "BSPD BAD",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "true",
+          "color": "#68e24a",
+          "label": "BSPD OK"
+        }
+      ]
+    },
+    "Indicator!3nlidse": {
+      "path": "mcu_status_data.imd_ok_high",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "IMD NOT OK",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "true",
+          "color": "#68e24a",
+          "label": "IMD OK"
+        }
+      ]
+    },
+    "Indicator!15oa319": {
+      "path": "mcu_status_data.inverter_error",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "INVERTER ERROR PRESENT",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "INVERTERS GOOD"
+        }
+      ]
+    },
+    "Indicator!4fr1nwl": {
+      "path": "mcu_status_data.software_ok",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "SOFTWARE ERROR",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "true",
+          "color": "#68e24a",
+          "label": "SOFTWARE OK"
+        }
+      ]
+    },
+    "Indicator!2is3u3r": {
+      "path": "drivetrain_status_telem_data.mc1_error",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "FL INV ERROR (MC1)",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "FL INV GOOD (MC1)"
+        }
+      ]
+    },
+    "Indicator!1s63t6v": {
+      "path": "drivetrain_status_telem_data.mc2_error",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "FR INV ERROR (MC2)",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "FR INV GOOD (MC2)"
+        }
+      ]
+    },
+    "Indicator!9qwzrx": {
+      "path": "drivetrain_status_telem_data.mc3_error",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "RL INV ERROR (MC3)",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "RL INV GOOD (MC3)"
+        }
+      ]
+    },
+    "Indicator!4kuw0lv": {
+      "path": "drivetrain_status_telem_data.mc4_error",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "RR INV ERROR (MC4)",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "RR INV GOOD (MC4)"
+        }
+      ]
+    },
+    "Indicator!4e60t6v": {
+      "path": "drivetrain_status_telem_data.accel_implausible",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "ACCEL PEDAL BAD",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "ACCEL PEDAL GOOD"
+        }
+      ]
+    },
+    "Indicator!2q3hhz2": {
+      "path": "drivetrain_status_telem_data.brake_implausible",
+      "style": "background",
+      "fallbackColor": "#d30f0f",
+      "fallbackLabel": "BRAKE PEDAL IMPLAUS",
+      "rules": [
+        {
+          "operator": "=",
+          "rawValue": "false",
+          "color": "#68e24a",
+          "label": "BRAKE PEDAL GOOD"
+        }
+      ]
+    },
+    "RawMessages!270l7em": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_status_data",
+      "fontSize": 18
+    },
+    "RawMessages!2qafxiy": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_gps_time_data",
+      "fontSize": 18
+    },
+    "RawMessages!zpqoo9": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_vel_data",
+      "fontSize": 18
+    },
+    "Plot!2uxu5w7": {
+      "paths": [
+        {
+          "value": "vn_vel_data.vn_body_vel_x",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "RawMessages!6c1jii": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_angular_rate_data",
+      "fontSize": 18
+    },
+    "RawMessages!zpban5": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_lat_lon_data",
+      "fontSize": 18,
+      "expansion": "all"
+    },
+    "RawMessages!293t0x1": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_linear_accel_uncomp_data",
+      "fontSize": 18
+    },
+    "RawMessages!uoi4pp": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_angular_rate_data",
+      "fontSize": 18
+    },
+    "RawMessages!2r2maw8": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_linear_accel_data",
+      "fontSize": 18
+    },
+    "RawMessages!4i2981q": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_ypr_data",
+      "fontSize": 18
+    },
+    "RawMessages!4jy8cz9": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_ecef_pos_xy_data",
+      "fontSize": 18
+    },
+    "RawMessages!gcckry": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_ecef_pos_z_data",
+      "fontSize": 18
+    },
+    "RawMessages!3xb5ozf": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_lat_lon_data",
+      "fontSize": 18,
+      "expansion": "all"
+    },
+    "RawMessages!397zq70": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mcu_analog_readings_data",
+      "fontSize": 24
+    },
+    "RawMessages!230srcg": {
+      "diffEnabled": false,
+      "diffMethod": "previous message",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mcu_status_data",
+      "fontSize": 24
+    },
+    "RawMessages!2oubeb4": {
+      "diffEnabled": false,
+      "diffMethod": "previous message",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "dashboard_state_data",
+      "fontSize": 24
+    },
+    "RawMessages!4eqjf8z": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mcu_pedal_raw_data",
+      "fontSize": 24
+    },
+    "RawMessages!6wj2jb": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mcu_pedal_readings_data",
+      "fontSize": 24
+    },
+    "Plot!ii4qq7": {
+      "paths": [
+        {
+          "value": "mcu_pedal_readings_data.accel_percent_float",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_status_telem_data.brake_percent",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "RawMessages!q4j69": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_err_status_telem_data"
+    },
+    "RawMessages!1n0dtlp": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_status_telem_data"
+    },
+    "Plot!156iq64": {
+      "paths": [
+        {
+          "value": "drivetrain_status_telem_data.brake_implausible",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "drivetrain_status_telem_data.accel_implausible",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "RawMessages!1u8pvkv": {
+      "diffEnabled": false,
+      "diffMethod": "previous message",
+      "diffTopicPath": "bms_voltages_data",
+      "showFullMessageForDiff": false,
+      "topicPath": "em_measurement_data"
+    },
+    "RawMessages!djis7y": {
+      "diffEnabled": false,
+      "diffMethod": "previous message",
+      "diffTopicPath": "bms_voltages_data",
+      "showFullMessageForDiff": false,
+      "topicPath": "em_status_data"
+    },
+    "RawMessages!37tk91e": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "acu_shunt_measurements_data",
+      "fontSize": 30
+    },
+    "RawMessages!203pk75": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "bms_status_data",
+      "fontSize": 30
+    },
+    "RawMessages!2mj0gps": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_rpms_telem_data"
+    },
+    "Plot!2m3ts73": {
+      "paths": [
+        {
+          "value": "drivetrain_rpms_telem_data.rr_motor_rpm",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "drivetrain_rpms_telem_data.fl_motor_rpm",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "drivetrain_rpms_telem_data.fr_motor_rpm",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.rl_motor_rpm",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Plot!e18wwa": {
+      "paths": [
+        {
+          "value": "mc1_setpoints_command_data.positive_torque_limit",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "mc2_setpoints_command_data.positive_torque_limit",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "mc3_setpoints_command_data.positive_torque_limit",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "RawMessages!trrbii": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_torque_telem_data"
+    },
+    "Plot!u4fjl7": {
+      "paths": [
+        {
+          "value": "drivetrain_torque_telem_data.rr_motor_torque",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "drivetrain_torque_telem_data.rl_motor_torque",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "value": "drivetrain_torque_telem_data.fr_motor_torque",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_torque_telem_data.fl_motor_torque",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Plot!47sv46b": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_vel_data.vn_body_vel_x",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_linear_accel_data.vn_lin_ins_accel_x",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240
+    },
+    "Plot!2eg6sz3": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "sab_suspension_data.potentiometer_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 10
+    },
+    "RawMessages!1d6ze4k": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_status_telem_data"
+    },
+    "RawMessages!2o9qi6l": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_err_status_telem_data"
+    },
+    "Plot!3p9f3hp": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.negative_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.negative_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.negative_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.negative_torque_limit",
+          "enabled": false
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!37kcisy": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!jrfsvk": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.fl_motor_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_vel_data.vn_body_vel_x",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!ypd10d": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.fl_motor_rpm",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_vel_data.vn_body_vel_x",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.positive_torque_limit",
+          "enabled": false
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "RawMessages!31pe1oe": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_boolean_data"
+    },
+    "RawMessages!29nek32": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vehm_wheel_steer_avg_deg_data"
+    },
+    "RawMessages!3ajnkny": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_torque_setup_data",
+      "fontSize": 18
+    },
+    "RawMessages!hxe6b2": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_tcs_status_data",
+      "fontSize": 18
+    },
+    "RawMessages!480n3bl": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_power_lim_corner_pow_data"
+    },
+    "RawMessages!e6a12y": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vehm_long_corner_vel_data"
+    },
+    "RawMessages!1n9zwz7": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_tcs_status_data"
+    },
+    "RawMessages!3rkrvz7": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_tcs_pid_input_data"
+    },
+    "RawMessages!kmzdsp": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_tcs_pid_output_data"
+    },
+    "RawMessages!1b1yhwf": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_pid_yaw_data",
+      "fontSize": 18
+    },
+    "RawMessages!qi1fht": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_tcs_torque_data",
+      "fontSize": 18
+    },
+    "RawMessages!2a8b9q1": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_normal_dist_data",
+      "fontSize": 18
+    },
+    "RawMessages!4b616i4": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_pid_yaw_torque_data",
+      "fontSize": 18
+    },
+    "RawMessages!krgiub": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mcu_pedal_readings_data.accel_percent_float",
+      "fontSize": 18
+    },
+    "RawMessages!10jhrje": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "drivetrain_status_telem_data.brake_percent",
+      "fontSize": 18
+    },
+    "RawMessages!2m2kjcb": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_vel_data.vn_body_vel_x",
+      "fontSize": 18
+    },
+    "RawMessages!hi3d73": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "dashboard_state_data.dial_state",
+      "fontSize": 18
+    },
+    "RawMessages!20u848e": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "controller_normal_torque_data",
+      "fontSize": 18
+    },
+    "RawMessages!3nj3fbb": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vn_status_data",
+      "fontSize": 18
+    },
+    "RawMessages!lkbe75": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vehm_alpha_data",
+      "fontSize": 18
+    },
+    "RawMessages!hu0mo9": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vehm_sl_data",
+      "fontSize": 18
+    },
+    "RawMessages!iwfspg": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "vehm_long_corner_vel_data",
+      "fontSize": 18
+    },
+    "RawMessages!4j1mbpj": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mc1_setpoints_command_data",
+      "fontSize": 18
+    },
+    "RawMessages!480gt3j": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mc2_setpoints_command_data",
+      "fontSize": 18
+    },
+    "RawMessages!40rqpc2": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mc3_setpoints_command_data",
+      "fontSize": 18
+    },
+    "RawMessages!2yocken": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "mc4_setpoints_command_data",
+      "fontSize": 18
+    },
+    "Plot!25jel": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_status_telem_data.accel_percent",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_status_telem_data.brake_percent",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "minYValue": 0,
+      "maxYValue": 110
+    },
+    "Plot!2o3oh57": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_ypr_data.vn_yaw",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "minYValue": -180,
+      "maxYValue": 180
+    },
+    "Plot!euqlyy": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_pid_yaw_data.controller_yaw_rate_error",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!eb67ce": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_power_lim_data.controller_power_lim_status",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!3amkiy5": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_status_data.vn_gps_status",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "minYValue": -0.25,
+      "maxYValue": 2.25
+    },
+    "Plot!9n3jq1": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.speed_setpoint_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.speed_setpoint_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.speed_setpoint_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.speed_setpoint_rpm",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!h0femc": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vehm_sl_data.vehm_sl_fl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vehm_sl_data.vehm_sl_fr",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vehm_sl_data.vehm_sl_rl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vehm_sl_data.vehm_sl_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "maxYValue": 1.1,
+      "minYValue": -1.1
+    },
+    "Plot!4a5zkch": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vn_vel_data.vn_body_vel_x",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "maxYValue": 40,
+      "minYValue": -40
+    },
+    "Plot!3e767t4": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.positive_torque_limit",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!ofe99x": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc1_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc2_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc3_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "mc4_setpoints_command_data.negative_torque_limit",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!uxyz6m": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.fl_motor_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.fr_motor_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.rl_motor_rpm",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "drivetrain_rpms_telem_data.rr_motor_rpm",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "minYValue": -1000,
+      "maxYValue": 20000
+    },
+    "Plot!44bzutu": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "vehm_wheel_steer_avg_deg_data.vehm_wheel_steer_avg_deg",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!1yh3gif": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_torque_setup_data.controller_constrained_torq_req",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!ulsg5l": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_status_data.controller_tcs_status_fl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_status_data.controller_tcs_status_fr",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_status_data.controller_tcs_status_rl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_status_data.controller_tcs_status_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!vm2b2": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_torque_data.controller_tcs_torque_fl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_torque_data.controller_tcs_torque_fr",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_torque_data.controller_tcs_torque_rl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_tcs_torque_data.controller_tcs_torque_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "minYValue": -20,
+      "maxYValue": 20
+    },
+    "Plot!1wy3q9e": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_pid_yaw_torque_data.controller_yaw_torque_fl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_pid_yaw_torque_data.controller_yaw_torque_fr",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_pid_yaw_torque_data.controller_yaw_torque_rl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_pid_yaw_torque_data.controller_yaw_torque_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30,
+      "minYValue": -20,
+      "maxYValue": 20
+    },
+    "Plot!3w05e1l": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_normal_torque_data.controller_normal_torque_fl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_normal_torque_data.controller_normal_torque_fr",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_normal_torque_data.controller_normal_torque_rl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_normal_torque_data.controller_normal_torque_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": false,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Plot!2p3tpw8": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_power_lim_torque_data.controller_power_lim_torque_fl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_power_lim_torque_data.controller_power_lim_torque_fr",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_power_lim_torque_data.controller_power_lim_torque_rl",
+          "enabled": true
+        },
+        {
+          "timestampMethod": "receiveTime",
+          "value": "controller_power_lim_torque_data.controller_power_lim_torque_rr",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "followingViewWidth": 30
+    },
+    "Tab!10nm586": {
+      "activeTabIdx": 10,
+      "tabs": [
+        {
+          "title": "car_error_states",
+          "layout": {
+            "first": {
+              "first": {
+                "first": {
+                  "first": "Indicator!1d5fxen",
+                  "second": "Indicator!3qa9o5p",
+                  "direction": "row"
+                },
+                "second": "Indicator!3nlidse",
+                "direction": "column",
+                "splitPercentage": 50
+              },
+              "second": {
+                "first": "Indicator!15oa319",
+                "second": "Indicator!4fr1nwl",
+                "direction": "column",
+                "splitPercentage": 51.86246418338111
+              },
+              "direction": "column",
+              "splitPercentage": 50.07153075822603
+            },
+            "second": {
+              "first": {
+                "first": {
+                  "first": "Indicator!2is3u3r",
+                  "second": "Indicator!1s63t6v",
+                  "direction": "row"
+                },
+                "second": {
+                  "first": "Indicator!9qwzrx",
+                  "second": "Indicator!4kuw0lv",
+                  "direction": "row"
+                },
+                "direction": "column"
+              },
+              "second": {
+                "first": "Indicator!4e60t6v",
+                "second": "Indicator!2q3hhz2",
+                "direction": "column",
+                "splitPercentage": 51.50214592274679
+              },
+              "direction": "column"
+            },
+            "direction": "row"
+          }
+        },
+        {
+          "title": "vectornav_raw",
+          "layout": {
+            "first": {
+              "first": {
+                "first": "RawMessages!270l7em",
+                "second": "RawMessages!2qafxiy",
+                "direction": "column"
+              },
+              "second": {
+                "first": {
+                  "direction": "row",
+                  "second": "Plot!2uxu5w7",
+                  "first": "RawMessages!zpqoo9"
+                },
+                "second": "RawMessages!6c1jii",
+                "direction": "column"
+              },
+              "direction": "column"
+            },
+            "second": {
+              "first": {
+                "first": {
+                  "first": "RawMessages!zpban5",
+                  "second": "RawMessages!293t0x1",
+                  "direction": "column"
+                },
+                "second": {
+                  "first": "RawMessages!uoi4pp",
+                  "second": "RawMessages!2r2maw8",
+                  "direction": "column",
+                  "splitPercentage": 50.35765379113018
+                },
+                "direction": "row"
+              },
+              "second": {
+                "first": {
+                  "first": "RawMessages!4i2981q",
+                  "second": {
+                    "first": "RawMessages!4jy8cz9",
+                    "second": "RawMessages!gcckry",
+                    "direction": "column"
+                  },
+                  "direction": "row"
+                },
+                "second": "RawMessages!3xb5ozf",
+                "direction": "column"
+              },
+              "direction": "column"
+            },
+            "direction": "row",
+            "splitPercentage": 28.287061288632792
+          }
+        },
+        {
+          "title": "mcu_raw",
+          "layout": {
+            "first": "RawMessages!397zq70",
+            "second": {
+              "first": "RawMessages!230srcg",
+              "second": "RawMessages!2oubeb4",
+              "direction": "row"
+            },
+            "direction": "row"
+          }
+        },
+        {
+          "title": "pedals_raw",
+          "layout": {
+            "first": "RawMessages!4eqjf8z",
+            "second": {
+              "direction": "column",
+              "second": "Plot!ii4qq7",
+              "first": "RawMessages!6wj2jb"
+            },
+            "direction": "row"
+          }
+        },
+        {
+          "title": "drive_raw",
+          "layout": {
+            "first": "RawMessages!q4j69",
+            "second": {
+              "direction": "row",
+              "second": "Plot!156iq64",
+              "first": "RawMessages!1n0dtlp"
+            },
+            "direction": "column"
+          }
+        },
+        {
+          "title": "energy_meter",
+          "layout": {
+            "first": "RawMessages!1u8pvkv",
+            "second": "RawMessages!djis7y",
+            "direction": "row"
+          }
+        },
+        {
+          "title": "acu_and_bms",
+          "layout": {
+            "first": "RawMessages!37tk91e",
+            "second": "RawMessages!203pk75",
+            "direction": "row"
+          }
+        },
+        {
+          "title": "drivetrain",
+          "layout": {
+            "first": {
+              "first": {
+                "direction": "row",
+                "second": {
+                  "first": "Plot!2m3ts73",
+                  "second": "Plot!e18wwa",
+                  "direction": "column"
+                },
+                "first": "RawMessages!2mj0gps",
+                "splitPercentage": 19.622470160871824
+              },
+              "second": {
+                "direction": "row",
+                "second": "Plot!u4fjl7",
+                "first": "RawMessages!trrbii",
+                "splitPercentage": 19.93608442004118
+              },
+              "direction": "column",
+              "splitPercentage": 60.51502145922747
+            },
+            "second": {
+              "first": {
+                "first": "Plot!47sv46b",
+                "second": "Plot!2eg6sz3",
+                "direction": "row",
+                "splitPercentage": 38.26714801444043
+              },
+              "second": {
+                "first": "RawMessages!1d6ze4k",
+                "second": "RawMessages!2o9qi6l",
+                "direction": "row"
+              },
+              "direction": "column",
+              "splitPercentage": 60.44349070100144
+            },
+            "direction": "row",
+            "splitPercentage": 62.189716312056746
+          }
+        },
+        {
+          "title": "launch_control",
+          "layout": {
+            "first": {
+              "first": "Plot!3p9f3hp",
+              "second": "Plot!37kcisy",
+              "direction": "column"
+            },
+            "second": {
+              "first": "Plot!jrfsvk",
+              "second": "Plot!ypd10d",
+              "direction": "column"
+            },
+            "direction": "row"
+          }
+        },
+        {
+          "title": "CASE Values",
+          "layout": {
+            "first": {
+              "first": {
+                "first": {
+                  "first": {
+                    "first": {
+                      "first": "RawMessages!31pe1oe",
+                      "second": "RawMessages!29nek32",
+                      "direction": "column",
+                      "splitPercentage": 61.97916666666665
+                    },
+                    "second": {
+                      "first": "RawMessages!3ajnkny",
+                      "second": "RawMessages!hxe6b2",
+                      "direction": "row"
+                    },
+                    "direction": "row",
+                    "splitPercentage": 33.33333333333333
+                  },
+                  "second": {
+                    "first": {
+                      "first": {
+                        "first": "RawMessages!480n3bl",
+                        "second": "RawMessages!e6a12y",
+                        "direction": "column"
+                      },
+                      "second": "RawMessages!1n9zwz7",
+                      "direction": "row",
+                      "splitPercentage": 58.686440677966104
+                    },
+                    "second": {
+                      "first": "RawMessages!3rkrvz7",
+                      "second": "RawMessages!kmzdsp",
+                      "direction": "column"
+                    },
+                    "direction": "row",
+                    "splitPercentage": 59.14786967418545
+                  },
+                  "direction": "column",
+                  "splitPercentage": 52.892561983471076
+                },
+                "second": {
+                  "first": {
+                    "first": "RawMessages!1b1yhwf",
+                    "second": "RawMessages!qi1fht",
+                    "direction": "column",
+                    "splitPercentage": 52.892561983471076
+                  },
+                  "second": {
+                    "first": "RawMessages!2a8b9q1",
+                    "second": "RawMessages!4b616i4",
+                    "direction": "column",
+                    "splitPercentage": 53.03030303030303
+                  },
+                  "direction": "row",
+                  "splitPercentage": 52.127659574468076
+                },
+                "direction": "row",
+                "splitPercentage": 54.807692307692314
+              },
+              "second": {
+                "first": {
+                  "first": {
+                    "first": {
+                      "first": "RawMessages!krgiub",
+                      "second": "RawMessages!10jhrje",
+                      "direction": "column"
+                    },
+                    "second": "RawMessages!2m2kjcb",
+                    "direction": "row"
+                  },
+                  "second": "RawMessages!hi3d73",
+                  "direction": "row",
+                  "splitPercentage": 70.94594594594594
+                },
+                "second": {
+                  "first": "RawMessages!20u848e",
+                  "second": "RawMessages!3nj3fbb",
+                  "direction": "row"
+                },
+                "direction": "column",
+                "splitPercentage": 52.892561983471076
+              },
+              "direction": "row",
+              "splitPercentage": 71.09375
+            },
+            "second": {
+              "first": {
+                "first": {
+                  "first": "RawMessages!lkbe75",
+                  "second": "RawMessages!hu0mo9",
+                  "direction": "row"
+                },
+                "second": "RawMessages!iwfspg",
+                "direction": "row",
+                "splitPercentage": 66.61931818181819
+              },
+              "second": {
+                "first": {
+                  "first": "RawMessages!4j1mbpj",
+                  "second": "RawMessages!480gt3j",
+                  "direction": "row",
+                  "splitPercentage": 47.651006711409394
+                },
+                "second": {
+                  "first": "RawMessages!40rqpc2",
+                  "second": "RawMessages!2yocken",
+                  "direction": "row"
+                },
+                "direction": "row",
+                "splitPercentage": 50.50335570469798
+              },
+              "direction": "row",
+              "splitPercentage": 41.796875
+            },
+            "direction": "column",
+            "splitPercentage": 70.48543689320388
+          }
+        },
+        {
+          "title": "CASE Graphs",
+          "layout": {
+            "first": {
+              "first": {
+                "first": {
+                  "first": {
+                    "first": "Plot!25jel",
+                    "second": "Plot!2o3oh57",
+                    "direction": "row"
+                  },
+                  "second": {
+                    "first": "Plot!euqlyy",
+                    "second": "Plot!eb67ce",
+                    "direction": "row"
+                  },
+                  "direction": "column"
+                },
+                "second": {
+                  "first": {
+                    "first": "Plot!3amkiy5",
+                    "second": "Plot!9n3jq1",
+                    "direction": "row"
+                  },
+                  "second": {
+                    "first": "Plot!h0femc",
+                    "second": "Plot!4a5zkch",
+                    "direction": "row"
+                  },
+                  "direction": "column"
+                },
+                "direction": "row"
+              },
+              "second": {
+                "first": "Plot!3e767t4",
+                "second": {
+                  "first": "Plot!ofe99x",
+                  "second": "Plot!uxyz6m",
+                  "direction": "row"
+                },
+                "direction": "row",
+                "splitPercentage": 36.00930773705641
+              },
+              "direction": "row",
+              "splitPercentage": 44.904122074709164
+            },
+            "second": {
+              "first": {
+                "first": {
+                  "first": {
+                    "first": "Plot!44bzutu",
+                    "second": "Plot!1yh3gif",
+                    "direction": "row"
+                  },
+                  "second": "Plot!ulsg5l",
+                  "direction": "column"
+                },
+                "second": "Plot!vm2b2",
+                "direction": "row"
+              },
+              "second": {
+                "first": "Plot!1wy3q9e",
+                "second": {
+                  "first": "Plot!3w05e1l",
+                  "second": "Plot!2p3tpw8",
+                  "direction": "row"
+                },
+                "direction": "row",
+                "splitPercentage": 36.046511627906966
+              },
+              "direction": "row",
+              "splitPercentage": 44.87207095317031
+            },
+            "direction": "column",
+            "splitPercentage": 52.49597423510467
+          }
+        }
+      ]
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {
+    "144af5f2-e834-415c-9396-bfe0f2787d3e": {
+      "sourceCode": "// The ./types module provides helper types for your Input events and messages.\nimport { Input, Message } from \"./types\";\n\n// Your script can output well-known message types, any of your custom message types, or\n// complete custom message types.\n//\n// Use `Message` to access types from the schemas defined in your data source:\n// type Twist = Message<\"geometry_msgs/Twist\">;\n//\n// Import from the @foxglove/schemas package to use foxglove schema types:\n// import { Pose, LocationFix } from \"@foxglove/schemas\";\n//\n// Conventionally, it's common to make a _type alias_ for your script's output type\n// and use that type name as the return type for your script function.\n// Here we've called the type `Output` but you can pick any type name.\ntype Output = {\n  hello: string;\n};\n\n// These are the topics your script \"subscribes\" to. Studio will invoke your script function\n// when any message is received on one of these topics.\nexport const inputs = [\"/input/topic\"];\n\n// Any output your script produces is \"published\" to this topic. Published messages are only visible within Studio, not to your original data source.\nexport const output = \"/studio_script/output_topic\";\n\n// This function is called with messages from your input topics.\n// The first argument is an event with the topic, receive time, and message.\n// Use the `Input<...>` helper to get the correct event type for your input topic messages.\nexport default function script(event: Input<\"/input/topic\">): Output {\n  return {\n    hello: \"world!\",\n  };\n};",
+      "name": "144af5f2"
+    }
+  },
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": "Tab!10nm586"
+}
