@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Immutable, PanelExtensionContext, ParameterValue } from "@foxglove/extension";
 import "./styles.css";
 
@@ -201,41 +201,58 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
     setTabs(updatedTabs);
   };
 
-  // For saving parameters locally
   const [buttonLoading, setButtonLoading] = useState(false);
 
-  const saveParameters = async () => {
+  // idk useCallback makes this use the most recent state so ctrl s save functionality works properly
+  // i couldnt tell you how react works
+  const saveParameters = useCallback(() => {
     setButtonLoading(true);
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
-    // debug
-    let currTab = getActiveTab();
 
-    // save file code
-    // iterate through tabs to get each parameter that should be saved
+    let curr = getActiveTab();
+
     let parameters: Record<string, any> = {};
-    currTab.registeredParameters.forEach((param, name) => {
+
+    // map parameters into JSOn
+    curr.registeredParameters.forEach((param, name) => {
       parameters[name] = param.inputField;
     });
 
     let tabJson = JSON.stringify(parameters, null, 2);
 
+    // idk some file saving code
     const blob = new Blob([tabJson], { type: "application/json" });
     const url = URL.createObjectURL(blob);
 
-    // Create a download link
     const a = document.createElement("a");
     a.href = url;
-    a.download = "parameters.json"; // Use .json extension
+    a.download = "parameters.json";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
 
-    // Cleanup
     URL.revokeObjectURL(url);
 
+    // let button be pressed again
     setButtonLoading(false);
-  };
+  }, [activeTab, tabs]);
 
+  // listens for ctrl s to indicate save
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "s") {
+        event.preventDefault();
+        saveParameters();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [saveParameters]);
+
+  // reads the jsons saved for registered parameter configurations
   const loadParametersFromFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     const fileInput = event.target;
     const file = fileInput.files?.[0];
@@ -255,17 +272,17 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
 
         const newParameters = new Map<string, RegisteredParameter>();
 
-        // Iterate through JSON keys and values, setting them as registered parameters
+        // iterate through JSON keys and values, and create parameters
         Object.entries(jsonData).forEach(([key, value]) => {
           const parameterValue: ParameterValue = value as ParameterValue;
 
           newParameters.set(key, {
             parameterValue,
-            inputField: String(value), // Ensure input field is a string for UI
+            inputField: String(value),
           });
         });
 
-        // Update only the active tab's registeredParameters
+        // update active tab's registered parameters
         setTabs((prevTabs) =>
           prevTabs.map((tab) =>
             tab.id === activeTab ? { ...tab, registeredParameters: newParameters } : tab,
