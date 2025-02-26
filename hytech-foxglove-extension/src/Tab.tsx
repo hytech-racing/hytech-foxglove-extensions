@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Immutable, PanelExtensionContext, ParameterValue } from "@foxglove/extension";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import "./styles.css";
 
 /* Tab */
@@ -151,19 +152,36 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
       return;
     }
 
-    const updatedParameter: RegisteredParameter = { ...paramToChange };
+    let convertedValue: ParameterValue;
 
-    if (typeof paramToChange.parameterValue === "string") {
-      updatedParameter.parameterValue = newValue;
+    // Convert input back to original type
+    if (typeof paramToChange.parameterValue === "boolean") {
+      convertedValue = newValue.toLowerCase() === "true";
     } else if (typeof paramToChange.parameterValue === "number") {
-      updatedParameter.parameterValue = isFinite(+newValue)
-        ? +newValue
-        : paramToChange.parameterValue;
-    } else if (typeof paramToChange.parameterValue === "boolean") {
-      updatedParameter.parameterValue = newValue.toLowerCase() === "true";
+      convertedValue = isFinite(+newValue) ? +newValue : paramToChange.parameterValue;
+    } else if (paramToChange.parameterValue instanceof Date) {
+      convertedValue = new Date(newValue);
     } else {
-      console.error(`Unsupported parameter type for ${paramKey}`);
+      convertedValue = newValue;
     }
+
+    const updatedParameter: RegisteredParameter = {
+      ...paramToChange,
+      parameterValue: convertedValue, // Store with correct type
+      inputField: newValue, // Store input as string for UI
+    };
+
+    // if (typeof paramToChange.parameterValue === "string") {
+    //   updatedParameter.parameterValue = newValue;
+    // } else if (typeof paramToChange.parameterValue === "number") {
+    //   updatedParameter.parameterValue = isFinite(+newValue)
+    //     ? +newValue
+    //     : paramToChange.parameterValue;
+    // } else if (typeof paramToChange.parameterValue === "boolean") {
+    //   updatedParameter.parameterValue = newValue.toLowerCase() === "true";
+    // } else {
+    //   console.error(`Unsupported parameter type for ${paramKey}`);
+    // }
 
     updatedParameter.inputField = newValue;
 
@@ -210,11 +228,11 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
 
     let curr = getActiveTab();
 
-    let parameters: Record<string, any> = {};
+    let parameters: Record<string, ParameterValue> = {};
 
-    // map parameters into JSOn
+    // map parameters into json
     curr.registeredParameters.forEach((param, name) => {
-      parameters[name] = param.inputField;
+      parameters[name] = param.parameterValue;
     });
 
     let tabJson = JSON.stringify(parameters, null, 2);
@@ -274,11 +292,22 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
 
         // iterate through JSON keys and values, and create parameters
         Object.entries(jsonData).forEach(([key, value]) => {
-          const parameterValue: ParameterValue = value as ParameterValue;
+          let parsedValue: ParameterValue;
+
+          // Preserve the correct type
+          if (typeof value === "boolean") {
+            parsedValue = value;
+          } else if (typeof value === "number") {
+            parsedValue = value;
+          } else if (typeof value === "string") {
+            parsedValue = value;
+          } else {
+            parsedValue = String(value); // Fallback to string
+          }
 
           newParameters.set(key, {
-            parameterValue,
-            inputField: String(value),
+            parameterValue: parsedValue,
+            inputField: String(parsedValue),
           });
         });
 
@@ -299,6 +328,18 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
 
     reader.readAsText(file);
   };
+
+  function getParameterType(value: ParameterValue): string {
+    if (value === undefined) return "undefined";
+    if (typeof value === "boolean") return "boolean";
+    if (typeof value === "number") return "number";
+    if (typeof value === "string") return "string";
+    if (value instanceof Date) return "Date";
+    if (value instanceof Uint8Array) return "Uint8Array";
+
+    return "unknown";
+  }
+
   return (
     <div>
       <div className="nav_bar">
@@ -346,15 +387,22 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
         ).map((key) => (
           <div className="parameter_list">
             <label className="parameter_name">{key}</label>
+            {/* <label className="perceived_parameter">
+              {getParameterValue(getActiveTab().registeredParameters.get(key)?.parameterValue)}
+            </label> */}
+            <input
+              id="param_type"
+              type="text"
+              value={getParameterType(getActiveTab().registeredParameters.get(key)?.parameterValue)}
+              readOnly
+            />
             <input
               id="change_param"
               type="text"
               value={getActiveTab().registeredParameters.get(key)?.inputField}
               onChange={(e) => onParameterChange(key, e)}
             />
-            {/* <label className="perceived_parameter">
-              {getParameterValue(getActiveTab().registeredParameters.get(key)?.parameterValue)}
-            </label> */}
+
             <button className="delete_param" onClick={() => removeParameter(key)}>
               x
             </button>

@@ -1,0 +1,5 @@
+{
+  "test_param": "hello",
+  "float_param": "2",
+  "bool_param": "true"
+}

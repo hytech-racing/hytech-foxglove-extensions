@@ -1,5 +1,5 @@
 {
-  "bool_param": "true",
-  "test_param": "test",
-  "float_param": "2"
+  "test_param": "erm",
+  "float_param": "6.0",
+  "bool_param": "true"
 }
