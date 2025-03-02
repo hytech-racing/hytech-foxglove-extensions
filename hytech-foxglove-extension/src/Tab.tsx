@@ -340,6 +340,40 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
     return "unknown";
   }
 
+  // reordering parameters
+  const moveParameter = (key: string, direction: "up" | "down") => {
+    setTabs((prevTabs) =>
+      prevTabs.map((tab) => {
+        if (tab.id !== activeTab) return tab;
+
+        const paramsArray = Array.from(tab.registeredParameters.entries());
+        const index = paramsArray.findIndex(([paramKey]) => paramKey === key);
+
+        if (index === -1) return tab; // If key is not found, return without changes
+
+        // Determine new index
+        const newIndex = direction === "up" ? index - 1 : index + 1;
+
+        // Ensure the new index is within bounds
+        if (newIndex < 0 || newIndex >= paramsArray.length) return tab;
+
+        // Swap elements safely
+        const movedItem = paramsArray[index];
+        const targetItem = paramsArray[newIndex];
+
+        if (!movedItem || !targetItem) return tab; // Prevent undefined errors
+
+        paramsArray[index] = targetItem;
+        paramsArray[newIndex] = movedItem;
+
+        return {
+          ...tab,
+          registeredParameters: new Map(paramsArray),
+        };
+      }),
+    );
+  };
+
   return (
     <div>
       <div className="nav_bar">
@@ -380,16 +414,24 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
           </button>
         </form>
       </div>
-      <div></div>
+
       <div>
         {Array.from(
           (getActiveTab().registeredParameters ?? new Map<string, ParameterValue>()).keys(),
-        ).map((key) => (
-          <div className="parameter_list">
+        ).map((key, index, array) => (
+          <div className="parameter_list" key={key}>
+            <div className="move_buttons">
+              <button onClick={() => moveParameter(key, "up")} disabled={index === 0}>
+                ⬆️
+              </button>
+              <button
+                onClick={() => moveParameter(key, "down")}
+                disabled={index === array.length - 1}
+              >
+                ⬇️
+              </button>
+            </div>
             <label className="parameter_name">{key}</label>
-            {/* <label className="perceived_parameter">
-              {getParameterValue(getActiveTab().registeredParameters.get(key)?.parameterValue)}
-            </label> */}
             <input
               id="param_type"
               type="text"
@@ -402,7 +444,6 @@ const TabSystem: React.FC<TabSystemProps> = ({ parameters, setParameters, pExten
               value={getActiveTab().registeredParameters.get(key)?.inputField}
               onChange={(e) => onParameterChange(key, e)}
             />
-
             <button className="delete_param" onClick={() => removeParameter(key)}>
               x
             </button>
