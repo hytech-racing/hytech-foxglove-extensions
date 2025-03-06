@@ -14,6 +14,8 @@ The search bar performs the obvious function, searching for existing parameters.
 
 The final line has saving and loading of configs. The "Save config to Json" button will save the current layout and values to a json, stored wherever in the file system. Choose file will load a previously stored json file into the configuration. There's currently an issue where after loading a configuration you can't immediately edit parameters, this will be fixed eventually. The current fix is to click "Choose file" a second time, which then allows for editing.
 
+For the parameter tab itself, the ordering of the parameters can be adjusted using the arrow buttons on the side.
+
 ## Current Issues/Bugs
 
 - When loading file, see above.
